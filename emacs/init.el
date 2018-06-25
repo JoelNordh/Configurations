@@ -4,7 +4,13 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
-;; -----------
+;; Spaces instead of tabs;
+(setq-default indent-tabs-mode nil)
+
+;; No BackupFiles
+(setq make-backup-files nil) ; stop creating backup~ files
+(setq auto-save-default nil) ; stop creating #autosave# files
+
 (load-file "~/.emacs.d/cedet/cedet-devel-load.el") ;; your cedet.el load path
 
 ;; Enable EDE (Project Management) features
@@ -23,6 +29,8 @@
 (add-hook 'c-mode-common-hook '(lambda ()
         (setq ac-sources (append '(ac-source-semantic) ac-sources))
 ))
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; Autocomplete
 (require 'auto-complete-config)
@@ -63,5 +71,8 @@
 
 ;; own keyboard shortcuts
 (global-set-key (kbd "C-c j") 'semantic-ia-fast-jump)
+(global-set-key (kbd "C-c g") 'semantic-symref)
+(global-set-key (kbd "C-c i") 'indent-region)
+
 (add-to-list 'load-path "/home/joel/share/emacs/site-lisp/")
 (require 'git)
