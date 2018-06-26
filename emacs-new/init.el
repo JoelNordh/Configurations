@@ -176,8 +176,10 @@ by Prelude.")
 (global-semantic-idle-completions-mode)
 (global-semantic-decoration-mode)
 (global-semantic-highlight-func-mode)
-(semantic-mode 1)
+(add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode)
 
+(semantic-mode 1)
+(require 'stickyfunc-enhance)
 ;; Auto-complete
 ;; Company mode
 (require 'company)
@@ -200,3 +202,9 @@ by Prelude.")
 (global-set-key (kbd "M-RET m") 'srefactor-lisp-format-sexp)
 (global-set-key (kbd "M-RET d") 'srefactor-lisp-format-defun)
 (global-set-key (kbd "M-RET b") 'srefactor-lisp-format-buffer)
+
+
+(global-set-key (kbd "<f5>") (lambda ()
+                               (interactive)
+                               (setq-local compilation-read-command nil)
+                               (call-interactively 'compile)))
