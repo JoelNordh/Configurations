@@ -208,3 +208,11 @@ by Prelude.")
                                (interactive)
                                (setq-local compilation-read-command nil)
                                (call-interactively 'compile)))
+;;All the above are from https://tuhdo.github.io/c-ide.html
+;; Following are my own..
+
+;;Imporoved regexp and "normal" regexp format
+(load-file (concat user-emacs-directory "regexp-on-steriods.el"))
+
+
+;;Magit
