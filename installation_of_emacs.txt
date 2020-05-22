@@ -18,6 +18,9 @@ install emacs packages.
 package-install use-package
 package-install helm-projectile-on
 package-install helm-gtags
+package-install stickyfunc-enhance
+package-install srefactor
+package-install visual-regexp-steroids
 get setup-helm from https://github.com/tuhdo/emacs-c-ide-demo/blob/master/custom/setup-helm.el
 put it in .emacs.d/modules/
 (require setup-helm)
